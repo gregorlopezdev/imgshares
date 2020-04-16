@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const { database } = require("./key");
+const key = require("./key");
 
 mongoose
-	.connect(database.URI, {
+	.connect(key.database.url, {
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 	})

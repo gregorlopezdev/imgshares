@@ -15,7 +15,11 @@ async function imagesAllViewsCounter() {
 			},
 		},
 	]);
-	return result[0].allViews;
+	if (result.length) {
+		return result[0].allViews;
+	} else {
+		return result.length;
+	}
 }
 async function imagesAllLikesCounter() {
 	const result = await ImageModel.aggregate([
@@ -26,7 +30,11 @@ async function imagesAllLikesCounter() {
 			},
 		},
 	]);
-	return result[0].allLikes;
+	if (result.length) {
+		return result[0].allLikes;
+	} else {
+		return result.length;
+	}
 }
 
 module.exports = {

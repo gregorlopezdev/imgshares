@@ -3,6 +3,7 @@
 		<h3><i class="far fa-images"></i> Recent Uploads</h3>
 	</div>
 	<div class="card-body">
+		{{#if images}}
 		<div class="row">
 			{{#each images}}
 			<div class="col-md-6 text-center">
@@ -12,5 +13,8 @@
 			</div>
 			{{/each}}
 		</div>
+		{{else}}
+		<h4 class="text danger">No images in the database</h4>
+		{{/if}}
 	</div>
 </div>

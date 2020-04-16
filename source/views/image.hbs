@@ -67,6 +67,7 @@
 			</form>
 
 			<ul class="list-group mt-3">
+				{{#if comments}}
 				{{#each comments}}
 				<li class="list-group-item">
 					<div class="row">
@@ -83,6 +84,9 @@
 					</div>
 				</li>
 				{{/each}}
+				{{else}}
+				<h5 class="text-danger">No comment</h5>
+				{{/if}}
 			</ul>
 		</blockquote>
 	</div>
