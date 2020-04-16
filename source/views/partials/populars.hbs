@@ -1,0 +1,18 @@
+{{#if sidebar.popularImages}}
+<div class="card border-success my-2">
+  <div class="card-header text-white">
+    <h5><i class="fas fa-fire mr-3"></i>Most Popular</h5>
+  </div>
+  <div class="card-body">
+    <div class="row" {{#each sidebar.popularImages}} <div
+      class="col-md-4 mb-2 p-0 d-flex justify-content-center align-items-center">
+      <a href="/images/{{this.uniqueId}}" data-toggle="tooltip" data-placement="bottom"
+        data-original-title="{{this.title}}" title="">
+        <img class="round round-big" src="/public/upload/{{this.filename}}" alt="{{this.title}}">
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</div>
+</div>
+{{/if}}

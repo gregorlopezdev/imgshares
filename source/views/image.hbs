@@ -1,0 +1,88 @@
+<div class="card border-success mb-5">
+	<div class="card-header d-flex justify-content-between align-item-center">
+		<h3 class="mb-0">{{ image.title }}</h3>
+		<button class="btn btn-danger" id="btnDelete" data-id="{{image.uniqueId}}">
+			<i class="fa fa-trash mr-1"></i> Delete
+		</button>
+	</div>
+
+	<div class="card-body">
+		<div class="text center">
+			<img src="/public/upload/{{image.filename}}" alt="{{image.description}}" class="img-fluid mb-3">
+		</div>
+		<h4 class="card-text text-center">{{image.description}}</h4>
+	</div>
+
+	<div class="card-footer d-flex justify-content-between align-item-center">
+
+		<p class="d-flex align-items-center mb-0">
+			<i class="fas fa-clock mr-1"></i>
+			<span class="comment-count">{{timeAgo image.timestamp}}</span>
+		</p>
+
+		<p class="d-flex align-items-center mb-0">
+			<i class="fas fa-heart mr-1"></i>
+			<span class="likes-count">{{image.likes}} Likes</span>
+		</p>
+
+		<p class="d-flex align-items-center mb-0">
+			<i class="fas fa-eye mr-1"></i>
+			<span class="comment-count">{{image.views}} Views</span>
+		</p>
+
+		<button class="btn btn-success" id="btnLike" data-id="{{image.uniqueId}}">
+			<i class="fas fa-heart mr-1"></i> Like
+		</button>
+
+	</div>
+</div>
+
+<div class="card border-success mb-5">
+	<div class="card-header d-flex justify-content-between align-item-center">
+		<h3 class="mb-0">Comments</h3>
+		<button class="btn btn-info" id="btnToggleComment">
+			<i class="fas fa-comments mr-1"></i> Post a comment
+		</button>
+	</div>
+
+	<div class="card-body">
+		<blockquote>
+			<form action="/images/{{image.uniqueId}}/comments" method="post" class="hiddenFormComments" id="formComments">
+
+				<div class="form-group">
+					<input type="text" class="form-control" name="name" placeholder="Insert your name">
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" name="email" placeholder="Insert your email">
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" name="comment" rows="3" placeholder="Insert your comment"></textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success" id="btnComment">
+						<i class="fas fa-comments mr-1"></i> Post
+					</button>
+				</div>
+
+			</form>
+
+			<ul class="list-group mt-3">
+				{{#each comments}}
+				<li class="list-group-item">
+					<div class="row">
+						<a href="#" class="col-md-2 text-center">
+							<img class="round" src="http://gravatar.com/avatar/{{image.gravatar}}?d=monsterid&s=45" alt="User Image">
+						</a>
+						<blockquote class="col-md-10 mb-0">
+							<p class="lead mb-0">{{this.comment}}</p>
+							<footer class="blockquote-footer">
+								{{this.name}} - {{timeAgo this.timestamp}}
+							</footer>
+						</blockquote>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</blockquote>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+/* body { */
+/* background-color: #dcdde1; */
+/* } */
+img {
+  display: inline-block;
+  max-height: 500px;
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+img.round {
+  border-radius: 50%;
+  --size: 50px;
+  width: var(--size);
+  height: var(--size);
+}
+img.round-little {
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+}
+img.round-big {
+  --size: 80px;
+  width: var(--size);
+  height: var(--size);
+}
+
+.Branding {
+  margin-bottom: 1rem;
+  padding: 0.2rem 1rem;
+}
+
+.Branding-image {
+  display: inline-block;
+  width: 50%;
+}
+
+.card .form-group:last-child {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.hiddenFormComments {
+  display: none;
+}

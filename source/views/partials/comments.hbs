@@ -1,0 +1,28 @@
+{{#if sidebar.newestComments}}
+<div class="card border-success mb-5">
+  <div class="card-header text-white">
+    <h5><i class="fas fa-comments mr-3"></i>Newest Comments</h5>
+  </div>
+  <div class="card-body">
+    <ul class="list-group mt-3">
+      {{#each sidebar.newestComments}}
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2 p-0 pl-1 text-center">
+            <img class="round round-little" src="http://gravatar.com/avatar/{{image.gravatar}}?d=monsterid&s=45"
+              alt="User Image">
+          </div>
+          <blockquote class="col-md-10 p-0 pl-3 mb-0">
+            <a href="/images/{{this.image.uniqueId}}" class="mb-0">{{this.comment}}</a>
+            <footer class="blockquote-footer">
+              {{this.name}} - {{timeAgo this.timestamp}}
+            </footer>
+          </blockquote>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+</div>
+{{/if}}
