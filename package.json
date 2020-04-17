@@ -4,7 +4,7 @@
 	"description": "Test project with nodejs backend",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon source/index.js",
+		"dev": "nodemon source/index.dev.js",
 		"start": "node source/index.js"
 	},
 	"author": "Gregory J Lopez",

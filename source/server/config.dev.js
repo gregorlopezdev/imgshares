@@ -3,6 +3,7 @@ const path = require('path')
 const exphbs = require('express-handlebars')
 const errHandler = require('errorhandler')
 const express = require('express')
+const morgan = require('morgan')
 const multer = require('multer')
 
 const routes = require('../routes/index.route')
@@ -22,6 +23,7 @@ module.exports = (app) => {
 	app.set('view engine', '.hbs')
 
 	// Middlewares
+	app.use(morgan('dev'))
 	app.use(multer({
 		dest: path.join(__dirname, '../public/upload/temp')
 	}).single('image'))
